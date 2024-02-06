@@ -1,6 +1,24 @@
+:root {
+  --black: black;
+  --black-2: #0d0d0c;
+  --white: white;
+  --gray-footer: #646464;
+  --gray-200: #e6e6e5;
+  --purple-static: #6a4192;
+  --gray-400: #9d9d95;
+  --green-static: #89be43;
+  --green-hover: #7aab3b;
+  --gray-700: #1d1d1b;
+  --gray-100: #f2f2f2;
+  --gray-300: #c2c2bd;
+  --gray-500: #353531;
+  --purple-hover: #804fb0;
+  --gray-600: #282825;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;

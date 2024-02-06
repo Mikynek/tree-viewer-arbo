@@ -6,7 +6,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <TreeViewer/>
+        <TreeViewer />
+        <button className='FormButton' onClick={() => console.log('open pop-up')}>Edit Tree</button>
       </div>
     );
   }
