@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/data.json");
+        const response = await fetch("https://mikynek.github.io/tree-viewer-arbo/data.json");
         const jsonData = await response.json();
         dispatch({ type: "SET_TREE_DATA", payload: jsonData });
       } catch (error) {
