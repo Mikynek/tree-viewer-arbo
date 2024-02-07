@@ -69,23 +69,34 @@ const PopUpForm = ({ onClose }) => {
   };
 
   const handleDelete = async () => {
+    const deletedNodeIds = [parseInt(selectedNodeId)];
+    collectChildNodeIds(deletedNodeIds, parseInt(selectedNodeId));
+
     const filteredData = data.filter(
-      (item) => item.id !== parseInt(selectedNodeId)
+      (item) => !deletedNodeIds.includes(item.id)
     );
+
     setData(filteredData);
     dispatch({ type: "SET_TREE_DATA", payload: filteredData });
     resetSelectedNode();
+  };
+
+  const collectChildNodeIds = (result, parentId) => {
+    const children = data.filter((item) => item.parentId === parentId);
+    for (const child of children) {
+      result.push(child.id);
+      collectChildNodeIds(result, child.id);
+    }
   };
 
   // Reset the selected node to its initial state [-]
   const resetSelectedNode = () => {
     setSelectedNode({ id: "", name: "", parentId: "" });
     setSelectedNodeId("-");
-    dispatch({ type: "DUMMY_ACTION" });
   };
 
   const generateUniqueId = () =>
-    Math.max(...data.map((item) => item.id), 0) + 1;
+    Math.max(...data.map((item) => item.id), 0) + 1;  // Find the maximum ID and add 1
 
   return (
     <>

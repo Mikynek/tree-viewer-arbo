@@ -43,7 +43,7 @@ button {
   transform: translate(-50%, -50%);
   background-color: var(--green-hover);
   color: var(--white);
-  padding: 20px;
+  padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 10px 0 var(--grey-600);
   z-index: 100;
@@ -65,6 +65,7 @@ button {
 @media (max-width: 768px) {
   .PopUp {
     max-width: 256px;
+    padding: 20px;
   }
 }
 
