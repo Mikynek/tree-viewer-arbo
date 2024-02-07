@@ -10,7 +10,7 @@ Instructions on how to install and setup your application.
 
 ```bash
 git clone https://github.com/Mikynek/tree-viewer-arbo
-cd tree-viewer
+cd tree-viewer-arbo/tree-viewer
 npm install
 ```
 
