@@ -43,7 +43,10 @@ const PopUpForm = ({ onClose }) => {
       selectedNode.parentId !== "" ? parseInt(selectedNode.parentId) : 0;
 
     // Validate the parent ID
-    if (parentId >= 0) {
+    const isParentIdValid =
+      parentId >= 0 && data.some((item) => item.id === parentId);
+
+    if (isParentIdValid) {
       const updatedNode = {
         ...selectedNode,
         id:
@@ -64,7 +67,7 @@ const PopUpForm = ({ onClose }) => {
 
       resetSelectedNode();
     } else {
-      alert("Parent ID must be a positive number or zero");
+      alert("Parent ID must be a positive number and must exist in the tree");
     }
   };
 
@@ -96,7 +99,7 @@ const PopUpForm = ({ onClose }) => {
   };
 
   const generateUniqueId = () =>
-    Math.max(...data.map((item) => item.id), 0) + 1;  // Find the maximum ID and add 1
+    Math.max(...data.map((item) => item.id), 0) + 1; // Find the maximum ID and add 1
 
   return (
     <>
