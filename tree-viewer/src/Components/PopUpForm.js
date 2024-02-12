@@ -44,7 +44,8 @@ const PopUpForm = ({ onClose }) => {
 
     // Validate the parent ID
     const isParentIdValid =
-      parentId >= 0 && data.some((item) => item.id === parentId);
+      parentId === 0 ||
+      (parentId > 0 && data.some((item) => item.id === parentId));
 
     if (isParentIdValid) {
       const updatedNode = {
@@ -66,6 +67,7 @@ const PopUpForm = ({ onClose }) => {
       }
 
       resetSelectedNode();
+      onClose();
     } else {
       alert("Parent ID must be a positive number and must exist in the tree");
     }
@@ -82,6 +84,7 @@ const PopUpForm = ({ onClose }) => {
     setData(filteredData);
     dispatch({ type: "SET_TREE_DATA", payload: filteredData });
     resetSelectedNode();
+    onClose();
   };
 
   const collectChildNodeIds = (result, parentId) => {
